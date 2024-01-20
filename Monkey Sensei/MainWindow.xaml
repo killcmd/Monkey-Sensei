@@ -142,7 +142,7 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Margin="269,462,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" Background="#A5FFFFFF" RenderTransformOrigin="0.5,0.5" Text="Top Ten Anime Betrayals">
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Margin="269,462,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" Background="#A5FFFFFF" RenderTransformOrigin="0.5,0.5" Text="Top Ten Anime Betrayals" KeyDown="searchBox_KeyDown">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

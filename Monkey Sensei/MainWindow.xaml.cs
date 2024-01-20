@@ -1,26 +1,11 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq.Expressions;
 using System.Net;
 using System.Net.Http;
-using System.Numerics;
-using System.Runtime.InteropServices.JavaScript;
-using System.Security.Policy;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Path = System.IO.Path;
 
 namespace Monkey_Sensei
 {
@@ -49,30 +34,7 @@ namespace Monkey_Sensei
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
-            //img_1.Source = posts[0].video;
-            //img_1.ToolTip = "Title: " + posts[0].title + "\nSteamID: " + posts[0].user.steam_name;
-            //img_2.Source = posts[1].video;
-            //img_2.ToolTip = "Title: " + posts[1].title + "\nSteamID: " + posts[1].user.steam_name;
-            //img_3.Source = posts[2].video;
-            //img_3.ToolTip = "Title: " + posts[2].title + "\nSteamID: " + posts[2].user.steam_name;
-            //img_4.Source = posts[3].video;
-            //img_4.ToolTip = "Title: " + posts[3].title + "\nSteamID: " + posts[3].user.steam_name;
-            //img_5.Source = posts[4].video;
-            //img_5.ToolTip = "Title: " + posts[4].title + "\nSteamID: " + posts[4].user.steam_name;
-            //img_6.Source = posts[5].video;
-            //img_6.ToolTip = "Title: " + posts[5].title + "\nSteamID: " + posts[5].user.steam_name;
-            //img_7.Source = posts[6].video;
-            //img_7.ToolTip = "Title: " + posts[6].title + "\nSteamID: " + posts[6].user.steam_name;
-            //img_8.Source = posts[7].video;
-            //img_8.ToolTip = "Title: " + posts[7].title + "\nSteamID: " + posts[7].user.steam_name;
-            //img_9.Source = posts[8].video;
-            //img_9.ToolTip = "Title: " + posts[8].title + "\nSteamID: " + posts[8].user.steam_name;
-            //img_10.Source = posts[9].video;
-            //img_10.ToolTip = "Title: " + posts[9].title + "\nSteamID: " + posts[9].user.steam_name;
-            //img_11.Source = posts[10].video;
-            //img_11.ToolTip = "Title: " + posts[10].title + "\nSteamID: " + posts[10].user.steam_name;
-            //img_12.Source = posts[11].video;
-            //img_12.ToolTip = "Title: " + posts[11].title + "\nSteamID: " + posts[11].user.steam_name;
+
             for (int i = 1; i <= 12; i++)
             {
                 MediaElement img = (MediaElement)this.FindName("img_" + i.ToString());
@@ -86,7 +48,7 @@ namespace Monkey_Sensei
             {
                 MediaElement img = (MediaElement)this.FindName("img_" + i.ToString());
 
-                img.Source = posts[i - 1].video;
+                img.Source = posts[i - 1].thumbnail;
                 img.ToolTip = "Title: " + posts[i - 1].title + "\nSteamID: " + posts[i - 1].user.steam_name;
 
             }
@@ -102,30 +64,7 @@ namespace Monkey_Sensei
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
-            //img_1.Source = posts[0].video;
-            //img_1.ToolTip = "Title: " + posts[0].title + "\nSteamID: " + posts[0].user.steam_name;
-            //img_2.Source = posts[1].video;
-            //img_2.ToolTip = "Title: " + posts[1].title + "\nSteamID: " + posts[1].user.steam_name;
-            //img_3.Source = posts[2].video;
-            //img_3.ToolTip = "Title: " + posts[2].title + "\nSteamID: " + posts[2].user.steam_name;
-            //img_4.Source = posts[3].video;
-            //img_4.ToolTip = "Title: " + posts[3].title + "\nSteamID: " + posts[3].user.steam_name;
-            //img_5.Source = posts[4].video;
-            //img_5.ToolTip = "Title: " + posts[4].title + "\nSteamID: " + posts[4].user.steam_name;
-            //img_6.Source = posts[5].video;
-            //img_6.ToolTip = "Title: " + posts[5].title + "\nSteamID: " + posts[5].user.steam_name;
-            //img_7.Source = posts[6].video;
-            //img_7.ToolTip = "Title: " + posts[6].title + "\nSteamID: " + posts[6].user.steam_name;
-            //img_8.Source = posts[7].video;
-            //img_8.ToolTip = "Title: " + posts[7].title + "\nSteamID: " + posts[7].user.steam_name;
-            //img_9.Source = posts[8].video;
-            //img_9.ToolTip = "Title: " + posts[8].title + "\nSteamID: " + posts[8].user.steam_name;
-            //img_10.Source = posts[9].video;
-            //img_10.ToolTip = "Title: " + posts[9].title + "\nSteamID: " + posts[9].user.steam_name;
-            //img_11.Source = posts[10].video;
-            //img_11.ToolTip = "Title: " + posts[10].title + "\nSteamID: " + posts[10].user.steam_name;
-            //img_12.Source = posts[11].video;
-            //img_12.ToolTip = "Title: " + posts[11].title + "\nSteamID: " + posts[11].user.steam_name;
+
 
             for (int i = 1; i <= 12; i++)
             {
@@ -140,7 +79,7 @@ namespace Monkey_Sensei
             {
                 MediaElement img = (MediaElement)this.FindName("img_" + i.ToString());
 
-                img.Source = posts[i - 1].video;
+                img.Source = posts[i - 1].thumbnail;
                 img.ToolTip = "Title: " + posts[i - 1].title + "\nSteamID: " + posts[i - 1].user.steam_name;
 
             }
@@ -748,143 +687,229 @@ namespace Monkey_Sensei
             }
         }
 
-        private void three_MouseEnter(object sender, MouseEventArgs e)
+        private async void three_MouseEnter(object sender, MouseEventArgs e)
         {
+            string searchQuery = !string.IsNullOrEmpty(search) ? $"&search={search}" : "";
+            string url = $"https://steamdeckrepo.com/api/posts?page={page + 1}{searchQuery}";
+            HttpResponseMessage response = await client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
+            img_3.Source = posts[2].video;
             img_3.Volume = 0.5;
         }
 
-        private void three_MouseLeave(object sender, MouseEventArgs e)
+        private async void three_MouseLeave(object sender, MouseEventArgs e)
         {
+            
             img_3.Volume = 0;
 
         }
 
-        private void two_MouseEnter(object sender, MouseEventArgs e)
+        private async void two_MouseEnter(object sender, MouseEventArgs e)
         {
+            string searchQuery = !string.IsNullOrEmpty(search) ? $"&search={search}" : "";
+            string url = $"https://steamdeckrepo.com/api/posts?page={page + 1}{searchQuery}";
+            HttpResponseMessage response = await client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
+            img_2.Source = posts[1].video;
             img_2.Volume = 0.5;
         }
 
-        private void two_MouseLeave(object sender, MouseEventArgs e)
+        private async void two_MouseLeave(object sender, MouseEventArgs e)
         {
             img_2.Volume = 0;
 
         }
 
-        private void one_MouseEnter(object sender, MouseEventArgs e)
+        private async void one_MouseEnter(object sender, MouseEventArgs e)
         {
+            string searchQuery = !string.IsNullOrEmpty(search) ? $"&search={search}" : "";
+            string url = $"https://steamdeckrepo.com/api/posts?page={page + 1}{searchQuery}";
+            HttpResponseMessage response = await client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
+            img_1.Source = posts[0].video;
             img_1.Volume = 0.5;
 
         }
 
-        private void one_MouseLeave(object sender, MouseEventArgs e)
+        private async void one_MouseLeave(object sender, MouseEventArgs e)
         {
             img_1.Volume = 0;
 
         }
 
-        private void six_MouseEnter(object sender, MouseEventArgs e)
+        private async void six_MouseEnter(object sender, MouseEventArgs e)
         {
+            string searchQuery = !string.IsNullOrEmpty(search) ? $"&search={search}" : "";
+            string url = $"https://steamdeckrepo.com/api/posts?page={page + 1}{searchQuery}";
+            HttpResponseMessage response = await client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
+            img_6.Source = posts[5].video;
             img_6.Volume = 0.5;
 
         }
 
-        private void six_MouseLeave(object sender, MouseEventArgs e)
+        private async void six_MouseLeave(object sender, MouseEventArgs e)
         {
             img_6.Volume = 0;
 
         }
 
-        private void five_MouseEnter(object sender, MouseEventArgs e)
+        private async void five_MouseEnter(object sender, MouseEventArgs e)
         {
+            string searchQuery = !string.IsNullOrEmpty(search) ? $"&search={search}" : "";
+            string url = $"https://steamdeckrepo.com/api/posts?page={page + 1}{searchQuery}";
+            HttpResponseMessage response = await client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
+            img_5.Source = posts[4].video;
             img_5.Volume = 0.5;
 
         }
 
-        private void five_MouseLeave(object sender, MouseEventArgs e)
+        private async void five_MouseLeave(object sender, MouseEventArgs e)
         {
             img_5.Volume = 0;
 
         }
 
-        private void four_MouseEnter(object sender, MouseEventArgs e)
+        private async void four_MouseEnter(object sender, MouseEventArgs e)
         {
+            string searchQuery = !string.IsNullOrEmpty(search) ? $"&search={search}" : "";
+            string url = $"https://steamdeckrepo.com/api/posts?page={page + 1}{searchQuery}";
+            HttpResponseMessage response = await client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
+            img_4.Source = posts[3].video;
             img_4.Volume = 0.5;
 
         }
 
-        private void four_MouseLeave(object sender, MouseEventArgs e)
+        private async void four_MouseLeave(object sender, MouseEventArgs e)
         {
             img_4.Volume = 0;
 
         }
 
-        private void nine_MouseEnter(object sender, MouseEventArgs e)
+        private async void nine_MouseEnter(object sender, MouseEventArgs e)
         {
+            string searchQuery = !string.IsNullOrEmpty(search) ? $"&search={search}" : "";
+            string url = $"https://steamdeckrepo.com/api/posts?page={page + 1}{searchQuery}";
+            HttpResponseMessage response = await client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
+            img_9.Source = posts[8].video;
             img_9.Volume = 0.5;
 
         }
 
-        private void nine_MouseLeave(object sender, MouseEventArgs e)
+        private async void nine_MouseLeave(object sender, MouseEventArgs e)
         {
+
             img_9.Volume = 0;
 
         }
 
-        private void eight_MouseEnter(object sender, MouseEventArgs e)
+        private async void eight_MouseEnter(object sender, MouseEventArgs e)
         {
+            string searchQuery = !string.IsNullOrEmpty(search) ? $"&search={search}" : "";
+            string url = $"https://steamdeckrepo.com/api/posts?page={page + 1}{searchQuery}";
+            HttpResponseMessage response = await client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
+            img_8.Source = posts[7].video;
             img_8.Volume = 0.5;
 
         }
 
-        private void eight_MouseLeave(object sender, MouseEventArgs e)
+        private async void eight_MouseLeave(object sender, MouseEventArgs e)
         {
             img_8.Volume = 0;
 
         }
 
-        private void seven_MouseEnter(object sender, MouseEventArgs e)
+        private async void seven_MouseEnter(object sender, MouseEventArgs e)
         {
+            string searchQuery = !string.IsNullOrEmpty(search) ? $"&search={search}" : "";
+            string url = $"https://steamdeckrepo.com/api/posts?page={page + 1}{searchQuery}";
+            HttpResponseMessage response = await client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
+            img_7.Source = posts[6].video;
             img_7.Volume = 0.5;
 
         }
 
-        private void seven_MouseLeave(object sender, MouseEventArgs e)
+        private async void seven_MouseLeave(object sender, MouseEventArgs e)
         {
             img_7.Volume = 0;
 
         }
 
-        private void twelve_MouseEnter(object sender, MouseEventArgs e)
+        private async void twelve_MouseEnter(object sender, MouseEventArgs e)
         {
+            string searchQuery = !string.IsNullOrEmpty(search) ? $"&search={search}" : "";
+            string url = $"https://steamdeckrepo.com/api/posts?page={page + 1}{searchQuery}";
+            HttpResponseMessage response = await client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
+            img_12.Source = posts[11].video;
             img_12.Volume = 0.5;
 
         }
 
-        private void twelve_MouseLeave(object sender, MouseEventArgs e)
+        private async void twelve_MouseLeave(object sender, MouseEventArgs e)
         {
             img_12.Volume = 0;
 
         }
 
-        private void eleven_MouseEnter(object sender, MouseEventArgs e)
+        private async void eleven_MouseEnter(object sender, MouseEventArgs e)
         {
+            string searchQuery = !string.IsNullOrEmpty(search) ? $"&search={search}" : "";
+            string url = $"https://steamdeckrepo.com/api/posts?page={page + 1}{searchQuery}";
+            HttpResponseMessage response = await client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
+            img_11.Source = posts[10].video;
             img_11.Volume = 0.5;
 
         }
 
-        private void eleven_MouseLeave(object sender, MouseEventArgs e)
+        private async void eleven_MouseLeave(object sender, MouseEventArgs e)
         {
             img_11.Volume = 0;
 
         }
 
-        private void ten_MouseEnter(object sender, MouseEventArgs e)
+        private async void ten_MouseEnter(object sender, MouseEventArgs e)
         {
+            string searchQuery = !string.IsNullOrEmpty(search) ? $"&search={search}" : "";
+            string url = $"https://steamdeckrepo.com/api/posts?page={page + 1}{searchQuery}";
+            HttpResponseMessage response = await client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
+            img_10.Source = posts[9].video;
             img_10.Volume = 0.5;
 
         }
 
-        private void ten_MouseLeave(object sender, MouseEventArgs e)
+        private async void ten_MouseLeave(object sender, MouseEventArgs e)
         {
             img_10.Volume = 0;
 
@@ -898,7 +923,7 @@ namespace Monkey_Sensei
 
         }
 
-        private void clear_Click(object sender, RoutedEventArgs e)
+        private async void clear_Click(object sender, RoutedEventArgs e)
         {
             page = 0;
             searchBox.Clear();
@@ -912,6 +937,15 @@ namespace Monkey_Sensei
 
             Process.Start(new ProcessStartInfo("https://github.com/killcmd") { UseShellExecute = true });
 
+        }
+
+        private void searchBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                search = searchBox.Text;
+                Window_Refresh();
+            }
         }
     }
 }
