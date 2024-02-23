@@ -689,19 +689,21 @@ namespace Monkey_Sensei
 
         private async void three_MouseEnter(object sender, MouseEventArgs e)
         {
+            
+           
             string searchQuery = !string.IsNullOrEmpty(search) ? $"&search={search}" : "";
             string url = $"https://steamdeckrepo.com/api/posts?page={page + 1}{searchQuery}";
             HttpResponseMessage response = await client.GetAsync(url);
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
-            img_3.Source = posts[2].video;
-            img_3.Volume = 0.5;
+            img_3.Source = posts[2].video_preview;
+            img_3.Volume = 0.03;
+            
         }
 
-        private async void three_MouseLeave(object sender, MouseEventArgs e)
+        private void three_MouseLeave(object sender, MouseEventArgs e)
         {
-            
             img_3.Volume = 0;
 
         }
@@ -714,11 +716,11 @@ namespace Monkey_Sensei
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
-            img_2.Source = posts[1].video;
-            img_2.Volume = 0.5;
+            img_2.Source = posts[1].video_preview;
+            img_2.Volume = 0.03;
         }
 
-        private async void two_MouseLeave(object sender, MouseEventArgs e)
+        private void two_MouseLeave(object sender, MouseEventArgs e)
         {
             img_2.Volume = 0;
 
@@ -732,15 +734,14 @@ namespace Monkey_Sensei
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
-            img_1.Source = posts[0].video;
-            img_1.Volume = 0.5;
+            img_1.Source = posts[0].video_preview;
+            img_1.Volume = 0.03;
 
         }
 
-        private async void one_MouseLeave(object sender, MouseEventArgs e)
+        private void one_MouseLeave(object sender, MouseEventArgs e)
         {
             img_1.Volume = 0;
-
         }
 
         private async void six_MouseEnter(object sender, MouseEventArgs e)
@@ -751,12 +752,12 @@ namespace Monkey_Sensei
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
-            img_6.Source = posts[5].video;
-            img_6.Volume = 0.5;
+            img_6.Source = posts[5].video_preview;
+            img_6.Volume = 0.03;
 
         }
 
-        private async void six_MouseLeave(object sender, MouseEventArgs e)
+        private void six_MouseLeave(object sender, MouseEventArgs e)
         {
             img_6.Volume = 0;
 
@@ -770,12 +771,12 @@ namespace Monkey_Sensei
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
-            img_5.Source = posts[4].video;
-            img_5.Volume = 0.5;
+            img_5.Source = posts[4].video_preview;
+            img_5.Volume = 0.03;
 
         }
 
-        private async void five_MouseLeave(object sender, MouseEventArgs e)
+        private void five_MouseLeave(object sender, MouseEventArgs e)
         {
             img_5.Volume = 0;
 
@@ -789,12 +790,12 @@ namespace Monkey_Sensei
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
-            img_4.Source = posts[3].video;
-            img_4.Volume = 0.5;
+            img_4.Source = posts[3].video_preview;
+            img_4.Volume = 0.03;
 
         }
 
-        private async void four_MouseLeave(object sender, MouseEventArgs e)
+        private void four_MouseLeave(object sender, MouseEventArgs e)
         {
             img_4.Volume = 0;
 
@@ -808,12 +809,12 @@ namespace Monkey_Sensei
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
-            img_9.Source = posts[8].video;
-            img_9.Volume = 0.5;
+            img_9.Source = posts[8].video_preview;
+            img_9.Volume = 0.03;
 
         }
 
-        private async void nine_MouseLeave(object sender, MouseEventArgs e)
+        private void nine_MouseLeave(object sender, MouseEventArgs e)
         {
 
             img_9.Volume = 0;
@@ -828,12 +829,13 @@ namespace Monkey_Sensei
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
-            img_8.Source = posts[7].video;
-            img_8.Volume = 0.5;
+            img_8.Source = posts[7].video_preview;
+            img_8.Volume = 0.03;
+           
 
         }
 
-        private async void eight_MouseLeave(object sender, MouseEventArgs e)
+        private void eight_MouseLeave(object sender, MouseEventArgs e)
         {
             img_8.Volume = 0;
 
@@ -847,12 +849,12 @@ namespace Monkey_Sensei
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
-            img_7.Source = posts[6].video;
-            img_7.Volume = 0.5;
+            img_7.Source = posts[6].video_preview;
+            img_7.Volume = 0.03;
 
         }
 
-        private async void seven_MouseLeave(object sender, MouseEventArgs e)
+        private void seven_MouseLeave(object sender, MouseEventArgs e)
         {
             img_7.Volume = 0;
 
@@ -866,12 +868,12 @@ namespace Monkey_Sensei
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
-            img_12.Source = posts[11].video;
-            img_12.Volume = 0.5;
+            img_12.Source = posts[11].video_preview;
+            img_12.Volume = 0.03;
 
         }
 
-        private async void twelve_MouseLeave(object sender, MouseEventArgs e)
+        private void twelve_MouseLeave(object sender, MouseEventArgs e)
         {
             img_12.Volume = 0;
 
@@ -885,12 +887,12 @@ namespace Monkey_Sensei
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
-            img_11.Source = posts[10].video;
-            img_11.Volume = 0.5;
+            img_11.Source = posts[10].video_preview;
+            img_11.Volume = 0.03;
 
         }
 
-        private async void eleven_MouseLeave(object sender, MouseEventArgs e)
+        private void eleven_MouseLeave(object sender, MouseEventArgs e)
         {
             img_11.Volume = 0;
 
@@ -904,12 +906,12 @@ namespace Monkey_Sensei
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
-            img_10.Source = posts[9].video;
-            img_10.Volume = 0.5;
+            img_10.Source = posts[9].video_preview;
+            img_10.Volume = 0.03;
 
         }
 
-        private async void ten_MouseLeave(object sender, MouseEventArgs e)
+        private void ten_MouseLeave(object sender, MouseEventArgs e)
         {
             img_10.Volume = 0;
 
@@ -925,10 +927,23 @@ namespace Monkey_Sensei
 
         private async void clear_Click(object sender, RoutedEventArgs e)
         {
+            var RandText = new Random().Next(1, 8);
             page = 0;
             searchBox.Clear();
-            search = searchBox.Text;
             Window_Refresh();
+            searchBox.Text = RandText switch
+            { 
+            1 => "Top 10 Anime Betrayals",
+            2 => "How not to get catfished",
+            3 => "Boku no Pico",
+            4 => "iPhone used as a ballistic missile",
+            5 => "Hoodrat shit",
+            6 => "Booty Warrior",
+            7 => "Muscle Mommies",
+            8 => "Boomer Shit",
+            _ => "Top 10 Anime Betrayals"
+            
+            };
         }
 
         private void Monkey_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

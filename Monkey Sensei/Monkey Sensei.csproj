@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
     <RootNamespace>Monkey_Sensei</RootNamespace>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>monkey8bit-dance.ico</ApplicationIcon>
+    <ApplicationIcon>icon-0.9s-256px.ico</ApplicationIcon>
     <PlatformTarget>x64</PlatformTarget>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>C:\Users\killcmd\source\repos\Monkey Sensei\killcmd.pfx</AssemblyOriginatorKeyFile>
@@ -15,25 +15,33 @@
     <Copyright>killcmd ©️2024</Copyright>
     <Description>Steam Customization Application</Description>
     <Title></Title>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>embedded</DebugType>
+    <WarningLevel>9999</WarningLevel>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>embedded</DebugType>
+    <WarningLevel>9999</WarningLevel>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="animal-1.1s-256px.gif" />
+    <None Remove="Firefly-6.3s-1084px.gif" />
+    <None Remove="icon-0.9s-256px.png" />
     <None Remove="iconic-vaporwave-neon-city-41duxbnaacsy4mr5.jpg" />
     <None Remove="monkey8bit-dance.gif" />
+    <None Remove="network_communications_background_with_flowing_cyber_dots_1609.jpg" />
     <None Remove="res\monkey8bit-dance.gif" />
+    <None Remove="wepik-3d-vaporwave-aesthetics-desktop-wallpaper-2024022306482680NO.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="monkey8bit-dance.ico" />
+    <Content Include="icon-0.9s-256px.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,11 +50,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="animal-1.1s-256px.gif" />
+    <Resource Include="Firefly-6.3s-1084px.gif" />
+    <Resource Include="icon-0.9s-256px.png" />
     <Resource Include="iconic-vaporwave-neon-city-41duxbnaacsy4mr5.jpg" />
     <Resource Include="monkey8bit-dance.gif" />
+    <Resource Include="network_communications_background_with_flowing_cyber_dots_1609.jpg" />
     <Resource Include="res\monkey8bit-dance.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="wepik-3d-vaporwave-aesthetics-desktop-wallpaper-2024022306482680NO.png" />
   </ItemGroup>
 
 </Project>
