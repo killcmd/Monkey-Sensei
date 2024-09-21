@@ -44,6 +44,8 @@ namespace Monkey_Sensei
             
             player1.Volume = 0.2;
             this.Title = posts[vid1].title + " by " + posts[vid1].user.steam_name;
+            subtitles.Content = posts[vid1].title + " \nby " + posts[vid1].user.steam_name;
+
         }
 
         public Player()
@@ -102,6 +104,16 @@ namespace Monkey_Sensei
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+        }
+
+        private void watermark_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void watermark_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

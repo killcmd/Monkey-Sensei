@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>icon-0.9s-256px.ico</ApplicationIcon>
+    <ApplicationIcon>game@1x-10.0s-200px-200px.ico</ApplicationIcon>
     <PlatformTarget>x64</PlatformTarget>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>C:\Users\killcmd\source\repos\killcmd\Monkey-Sensei\killcmd.pfx</AssemblyOriginatorKeyFile>
@@ -17,8 +17,8 @@
     <Title></Title>
     <Version>1.0.2</Version>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <AssemblyVersion>1.1.0.1</AssemblyVersion>
-    <FileVersion>1.1.0.1</FileVersion>
+    <AssemblyVersion>1.1.0.2</AssemblyVersion>
+    <FileVersion>1.1.0.2</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -32,18 +32,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Amiga_Bezel_Glare.png.fbac77f1538b599fd818ee8729c7cac6.png" />
     <None Remove="animal-1.1s-256px.gif" />
+    <None Remove="black.png" />
     <None Remove="Firefly-6.3s-1084px.gif" />
+    <None Remove="game%401x-10.0s-200px-200px.gif" />
     <None Remove="icon-0.9s-256px.png" />
     <None Remove="iconic-vaporwave-neon-city-41duxbnaacsy4mr5.jpg" />
     <None Remove="monkey8bit-dance.gif" />
     <None Remove="network_communications_background_with_flowing_cyber_dots_1609.jpg" />
     <None Remove="res\monkey8bit-dance.gif" />
+    <None Remove="vecteezy_old-painted-blue-wood-texture-or-background_2385166.jpg" />
+    <None Remove="vecteezy_retro-gaming-fun-old-school-arcade-game-in-an-80s-neon_24062848.jpg" />
+    <None Remove="vecteezy_wooden-background-or-texture_13952630.jpg" />
     <None Remove="wepik-3d-vaporwave-aesthetics-desktop-wallpaper-2024022306482680NO.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="icon-0.9s-256px.ico" />
+    <Content Include="game@1x-10.0s-200px-200px.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,8 +58,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Amiga_Bezel_Glare.png.fbac77f1538b599fd818ee8729c7cac6.png" />
     <Resource Include="animal-1.1s-256px.gif" />
+    <Resource Include="black.png" />
     <Resource Include="Firefly-6.3s-1084px.gif" />
+    <Resource Include="game@1x-10.0s-200px-200px.gif" />
     <Resource Include="icon-0.9s-256px.png" />
     <Resource Include="iconic-vaporwave-neon-city-41duxbnaacsy4mr5.jpg" />
     <Resource Include="monkey8bit-dance.gif" />
@@ -61,6 +70,9 @@
     <Resource Include="res\monkey8bit-dance.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="vecteezy_old-painted-blue-wood-texture-or-background_2385166.jpg" />
+    <Resource Include="vecteezy_retro-gaming-fun-old-school-arcade-game-in-an-80s-neon_24062848.jpg" />
+    <Resource Include="vecteezy_wooden-background-or-texture_13952630.jpg" />
     <Resource Include="wepik-3d-vaporwave-aesthetics-desktop-wallpaper-2024022306482680NO.png" />
   </ItemGroup>
 

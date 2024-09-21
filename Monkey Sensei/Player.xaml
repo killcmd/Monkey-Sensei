@@ -1,17 +1,36 @@
-﻿<Window x:Class="Monkey_Sensei.Player"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monkey_Sensei"
-        mc:Ignorable="d" Height="327" Width="462" Background="{DynamicResource Window-Main}" ResizeMode="NoResize" Closing="Window_Closing" WindowStartupLocation="CenterOwner">
+        xmlns:gif="http://wpfanimatedgif.codeplex.com" x:Class="Monkey_Sensei.Player"
+        mc:Ignorable="d" Height="466" Width="583" Background="{DynamicResource Window-Main}" ResizeMode="NoResize" Closing="Window_Closing" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <ImageBrush x:Key="Window-Main" ImageSource="/wepik-3d-vaporwave-aesthetics-desktop-wallpaper-2024022306482680NO.png" Stretch="UniformToFill" TileMode="Tile"/>
+    </Window.Resources>
     <Grid>
-        <MediaElement x:Name="player1" HorizontalAlignment="Left" Height="300" Margin="10,10,0,0" VerticalAlignment="Top" Width="424" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" LoadedBehavior="Play">
+
+        <Image x:Name="Black" HorizontalAlignment="Left" Height="348" Margin="37,16,0,0" VerticalAlignment="Top" Width="464" Source="/black.png" Stretch="Fill"/>
+
+        <MediaElement x:Name="player1" HorizontalAlignment="Left" Height="337" Margin="85,47,0,0" VerticalAlignment="Top" Width="406" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" LoadedBehavior="Play" Stretch="Fill">
             <MediaElement.Effect>
                 <DropShadowEffect Direction="386" BlurRadius="37" RenderingBias="Quality" ShadowDepth="16"/>
             </MediaElement.Effect>
         </MediaElement>
-        <Button x:Name="Apply" Content="Apply" HorizontalAlignment="Left" Margin="324,233,0,0" VerticalAlignment="Top" Click="Next_Click" Width="96" RenderTransformOrigin="0.5,0.5" Height="32" CacheMode="{DynamicResource WindowCacheMode}" >
+        <Image x:Name="Watermark" HorizontalAlignment="Left" Height="73" Margin="411,273,0,0" VerticalAlignment="Top" Width="70" gif:ImageBehavior.AnimatedSource="/game@1x-10.0s-200px-200px.gif" Cursor="Hand" CacheMode="{DynamicResource WindowCacheMode}" Stretch="UniformToFill"/>
+        <Label x:Name="subtitles" Content="" HorizontalAlignment="Left" Margin="95,309,0,0" VerticalAlignment="Top" Background="#BF020202" Foreground="White" FontFamily="Century" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="4"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.858"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Image HorizontalAlignment="Left" Height="430" VerticalAlignment="Top" Width="682" Source="/Amiga_Bezel_Glare.png.fbac77f1538b599fd818ee8729c7cac6.png" Stretch="UniformToFill" Margin="-97,0,0,0"/>
+        <Button x:Name="Apply" Content="Apply" HorizontalAlignment="Left" Margin="413,355,0,0" VerticalAlignment="Top" Click="Next_Click" Width="96" RenderTransformOrigin="0.5,0.5" Height="32" CacheMode="{DynamicResource WindowCacheMode}" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -29,7 +48,4 @@
         </Button>
 
     </Grid>
-    <Window.Resources>
-        <ImageBrush x:Key="Window-Main" ImageSource="/wepik-3d-vaporwave-aesthetics-desktop-wallpaper-2024022306482680NO.png" Stretch="UniformToFill" TileMode="Tile"/>
-    </Window.Resources>
 </Window>
