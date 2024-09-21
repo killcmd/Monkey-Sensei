@@ -10,13 +10,15 @@
     <ApplicationIcon>icon-0.9s-256px.ico</ApplicationIcon>
     <PlatformTarget>x64</PlatformTarget>
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>C:\Users\killcmd\source\repos\Monkey Sensei\killcmd.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>C:\Users\killcmd\source\repos\killcmd\Monkey-Sensei\killcmd.pfx</AssemblyOriginatorKeyFile>
     <Authors>killcmd</Authors>
     <Copyright>killcmd ©️2024</Copyright>
     <Description>Steam Customization Application</Description>
     <Title></Title>
     <Version>1.0.2</Version>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AssemblyVersion>1.1.0.1</AssemblyVersion>
+    <FileVersion>1.1.0.1</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

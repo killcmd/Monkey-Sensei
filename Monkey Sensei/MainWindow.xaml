@@ -1,4 +1,4 @@
-﻿<Window CacheMode="{DynamicResource WindowCacheMode}" x:Class="Monkey_Sensei.MainWindow"
+﻿<Window Background="{DynamicResource Window-Main}" CacheMode="{DynamicResource WindowCacheMode}" x:Class="Monkey_Sensei.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,134 +6,74 @@
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:local="clr-namespace:Monkey_Sensei"
         mc:Ignorable="d"
-        Title="Monkey Sensei" Height="550" Width="810" Loaded="Window_Loaded" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" Topmost="True">
-    <Window.Background>
-        <ImageBrush TileMode="Tile" Stretch="UniformToFill" ImageSource="/wepik-3d-vaporwave-aesthetics-desktop-wallpaper-2024022306482680NO.png"/>
-    </Window.Background>
+        Title="Monkey Sensei" Height="550" Width="806" Loaded="Window_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" Topmost="True" Closing="Window_Closing">
+    <Window.Resources>
+        <ImageBrush x:Key="Window-Main" ImageSource="/wepik-3d-vaporwave-aesthetics-desktop-wallpaper-2024022306482680NO.png" Stretch="UniformToFill" TileMode="Tile"/>
+    </Window.Resources>
     <Window.Effect>
         <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
     </Window.Effect>
     <Grid Margin="0,0,0,9">
-        <Image x:Name="staticimg1" HorizontalAlignment="Left" Height="100" Margin="12,310,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" >
+        <Image x:Name="staticimg1" HorizontalAlignment="Left" Height="100" Margin="12,310,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" MouseDown="staticimg1_MouseDown" Cursor="Hand" >
             <Image.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
+                <DropShadowEffect Direction="386" BlurRadius="37" RenderingBias="Quality" ShadowDepth="16"/>
             </Image.Effect>
         </Image>
-        <Image x:Name="staticimg2" HorizontalAlignment="Left" Height="100" Margin="12,160,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" >
+        <Image x:Name="staticimg2" HorizontalAlignment="Left" Height="100" Margin="12,160,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" MouseDown="staticimg2_MouseDown" Cursor="Hand" >
             <Image.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
+                <DropShadowEffect Direction="386" BlurRadius="37" RenderingBias="Quality" ShadowDepth="16"/>
             </Image.Effect>
         </Image>
-        <Image   x:Name="staticimg3" HorizontalAlignment="Left" Height="100" Margin="12,10,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" >
+        <Image   x:Name="staticimg3" HorizontalAlignment="Left" Height="100" Margin="12,10,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" MouseDown="staticimg3_MouseDown" Cursor="Hand" >
             <Image.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
+                <DropShadowEffect Direction="386" BlurRadius="37" RenderingBias="Quality" ShadowDepth="16"/>
             </Image.Effect>
         </Image>
-        <Image x:Name="staticimg4" HorizontalAlignment="Left" Height="100" Margin="212,310,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" >
+        <Image x:Name="staticimg4" HorizontalAlignment="Left" Height="100" Margin="212,310,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" MouseDown="staticimg4_MouseDown" Cursor="Hand" >
             <Image.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
+                <DropShadowEffect Direction="386" BlurRadius="37" RenderingBias="Quality" ShadowDepth="16"/>
             </Image.Effect>
         </Image>
-        <Image x:Name="staticimg5" HorizontalAlignment="Left" Height="100" Margin="212,160,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" >
+        <Image x:Name="staticimg5" HorizontalAlignment="Left" Height="100" Margin="212,160,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" MouseDown="staticimg5_MouseDown" Cursor="Hand" >
             <Image.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
+                <DropShadowEffect Direction="386" BlurRadius="37" RenderingBias="Quality" ShadowDepth="16"/>
             </Image.Effect>
         </Image>
-        <Image x:Name="staticimg6" HorizontalAlignment="Left" Height="100" Margin="212,10,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" >
+        <Image x:Name="staticimg6" HorizontalAlignment="Left" Height="100" Margin="212,10,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" MouseDown="staticimg6_MouseDown" Cursor="Hand" >
             <Image.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
+                <DropShadowEffect Direction="386" BlurRadius="37" RenderingBias="Quality" ShadowDepth="16"/>
             </Image.Effect>
         </Image>
-        <Image x:Name="staticimg7" HorizontalAlignment="Left" Height="100" Margin="412,310,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" >
+        <Image x:Name="staticimg7" HorizontalAlignment="Left" Height="100" Margin="412,310,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" MouseDown="staticimg7_MouseDown" Cursor="Hand" >
             <Image.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
+                <DropShadowEffect Direction="386" BlurRadius="37" RenderingBias="Quality" ShadowDepth="16"/>
             </Image.Effect>
         </Image>
-        <Image x:Name="staticimg8" HorizontalAlignment="Left" Height="100" Margin="412,160,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" >
+        <Image x:Name="staticimg8" HorizontalAlignment="Left" Height="100" Margin="412,160,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" MouseDown="staticimg8_MouseDown" Cursor="Hand" >
             <Image.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
+                <DropShadowEffect Direction="386" BlurRadius="37" RenderingBias="Quality" ShadowDepth="16"/>
             </Image.Effect>
         </Image>
-        <Image x:Name="staticimg9" HorizontalAlignment="Left" Height="100" Margin="412,10,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" >
+        <Image x:Name="staticimg9" HorizontalAlignment="Left" Height="100" Margin="412,10,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" MouseDown="staticimg9_MouseDown" Cursor="Hand" >
             <Image.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
+                <DropShadowEffect Direction="386" BlurRadius="37" RenderingBias="Quality" ShadowDepth="16"/>
             </Image.Effect>
         </Image>
-        <Image x:Name="staticimg10" HorizontalAlignment="Left" Height="100" Margin="612,310,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" >
+        <Image x:Name="staticimg10" HorizontalAlignment="Left" Height="100" Margin="612,310,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" MouseDown="staticimg10_MouseDown" Cursor="Hand" >
             <Image.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
+                <DropShadowEffect Direction="386" BlurRadius="37" RenderingBias="Quality" ShadowDepth="16"/>
             </Image.Effect>
         </Image>
-        <Image x:Name="staticimg11" HorizontalAlignment="Left" Height="100" Margin="612,160,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" >
+        <Image x:Name="staticimg11" HorizontalAlignment="Left" Height="100" Margin="612,160,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" MouseDown="staticimg11_MouseDown" Cursor="Hand" >
             <Image.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
+                <DropShadowEffect Direction="386" BlurRadius="37" RenderingBias="Quality" ShadowDepth="16"/>
             </Image.Effect>
         </Image>
-        <Image x:Name="staticimg12" HorizontalAlignment="Left" Height="100" Margin="612,10,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" >
+        <Image x:Name="staticimg12" HorizontalAlignment="Left" Height="100" Margin="612,10,0,0" VerticalAlignment="Top" Width="160" Source="/network_communications_background_with_flowing_cyber_dots_1609.jpg" Stretch="UniformToFill" CacheMode="{DynamicResource WindowCacheMode}" MouseDown="staticimg12_MouseDown" Cursor="Hand" >
             <Image.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
+                <DropShadowEffect Direction="386" BlurRadius="37" RenderingBias="Quality" ShadowDepth="16"/>
             </Image.Effect>
         </Image>
-        <MediaElement x:Name="img_1" HorizontalAlignment="Left" Height="100" Margin="12,310,0,0" VerticalAlignment="Top" Width="200" MouseDown="one_MouseDown" Volume="0" MouseEnter="one_MouseEnter" MouseLeave="one_MouseLeave" Cursor="Hand" UnloadedBehavior="Manual" ScrubbingEnabled="True" CacheMode="{DynamicResource WindowCacheMode}" >
-            <MediaElement.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
-            </MediaElement.Effect>
-        </MediaElement>
-        <MediaElement x:Name="img_2" HorizontalAlignment="Left" Height="100" Margin="12,160,0,0" VerticalAlignment="Top" Width="200" MouseDown="two_MouseDown" Volume="0" MouseEnter="two_MouseEnter" MouseLeave="two_MouseLeave" Cursor="Hand" UnloadedBehavior="Manual" ScrubbingEnabled="True" CacheMode="{DynamicResource WindowCacheMode}" >
-            <MediaElement.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
-            </MediaElement.Effect>
-        </MediaElement>
-        <MediaElement   x:Name="img_3" HorizontalAlignment="Left" Height="100" Margin="12,10,0,0" VerticalAlignment="Top" Width="200" MouseDown="three_MouseDown" Volume="0" MouseEnter="three_MouseEnter" MouseLeave="three_MouseLeave" Cursor="Hand" UnloadedBehavior="Manual" ScrubbingEnabled="True" CacheMode="{DynamicResource WindowCacheMode}" >
-            <MediaElement.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
-            </MediaElement.Effect>
-        </MediaElement>
-        <MediaElement x:Name="img_4" HorizontalAlignment="Left" Height="100" Margin="212,310,0,0" VerticalAlignment="Top" Width="200" MouseDown="four_MouseDown" Volume="0" MouseEnter="four_MouseEnter" MouseLeave="four_MouseLeave" Cursor="Hand" UnloadedBehavior="Manual" ScrubbingEnabled="True" CacheMode="{DynamicResource WindowCacheMode}" >
-            <MediaElement.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
-            </MediaElement.Effect>
-        </MediaElement>
-        <MediaElement x:Name="img_5" HorizontalAlignment="Left" Height="100" Margin="212,160,0,0" VerticalAlignment="Top" Width="200" MouseDown="five_MouseDown" Volume="0" MouseEnter="five_MouseEnter" MouseLeave="five_MouseLeave" Cursor="Hand" UnloadedBehavior="Manual" ScrubbingEnabled="True" CacheMode="{DynamicResource WindowCacheMode}" >
-            <MediaElement.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
-            </MediaElement.Effect>
-        </MediaElement>
-        <MediaElement x:Name="img_6" HorizontalAlignment="Left" Height="100" Margin="212,10,0,0" VerticalAlignment="Top" Width="200" MouseDown="six_MouseDown" Volume="0" MouseEnter="six_MouseEnter" MouseLeave="six_MouseLeave" Cursor="Hand" UnloadedBehavior="Manual" ScrubbingEnabled="True" CacheMode="{DynamicResource WindowCacheMode}" >
-            <MediaElement.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
-            </MediaElement.Effect>
-        </MediaElement>
-        <MediaElement x:Name="img_7" HorizontalAlignment="Left" Height="100" Margin="412,310,0,0" VerticalAlignment="Top" Width="200" MouseDown="seven_MouseDown" Volume="0" MouseEnter="seven_MouseEnter" MouseLeave="seven_MouseLeave" Cursor="Hand" UnloadedBehavior="Manual" ScrubbingEnabled="True" CacheMode="{DynamicResource WindowCacheMode}" >
-            <MediaElement.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
-            </MediaElement.Effect>
-        </MediaElement>
-        <MediaElement x:Name="img_8" HorizontalAlignment="Left" Height="100" Margin="412,160,0,0" VerticalAlignment="Top" Width="200" MouseDown="eight_MouseDown" Volume="0" MouseEnter="eight_MouseEnter" MouseLeave="eight_MouseLeave" Cursor="Hand" UnloadedBehavior="Manual" ScrubbingEnabled="True" CacheMode="{DynamicResource WindowCacheMode}" >
-            <MediaElement.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
-            </MediaElement.Effect>
-        </MediaElement>
-        <MediaElement x:Name="img_9" HorizontalAlignment="Left" Height="100" Margin="412,10,0,0" VerticalAlignment="Top" Width="200" MouseDown="nine_MouseDown" Volume="0" MouseEnter="nine_MouseEnter" MouseLeave="nine_MouseLeave" Cursor="Hand" UnloadedBehavior="Manual" ScrubbingEnabled="True" CacheMode="{DynamicResource WindowCacheMode}" >
-            <MediaElement.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
-            </MediaElement.Effect>
-        </MediaElement>
-        <MediaElement x:Name="img_10" HorizontalAlignment="Left" Height="100" Margin="612,310,0,0" VerticalAlignment="Top" Width="200" MouseDown="ten_MouseDown" Volume="0" MouseEnter="ten_MouseEnter" MouseLeave="ten_MouseLeave" Cursor="Hand" UnloadedBehavior="Manual" ScrubbingEnabled="True" CacheMode="{DynamicResource WindowCacheMode}" >
-            <MediaElement.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
-            </MediaElement.Effect>
-        </MediaElement>
-        <MediaElement x:Name="img_11" HorizontalAlignment="Left" Height="100" Margin="612,160,0,0" VerticalAlignment="Top" Width="200" MouseDown="eleven_MouseDown" Volume="0" MouseEnter="eleven_MouseEnter" MouseLeave="eleven_MouseLeave" Cursor="Hand" UnloadedBehavior="Manual" ScrubbingEnabled="True" CacheMode="{DynamicResource WindowCacheMode}" >
-            <MediaElement.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
-            </MediaElement.Effect>
-        </MediaElement>
-        <MediaElement x:Name="img_12" HorizontalAlignment="Left" Height="100" Margin="612,10,0,0" VerticalAlignment="Top" Width="200" MouseDown="twelve_MouseDown" Volume="0" MouseEnter="twelve_MouseEnter" MouseLeave="twelve_MouseLeave" Cursor="Hand" UnloadedBehavior="Manual" ScrubbingEnabled="True" CacheMode="{DynamicResource WindowCacheMode}" >
-            <MediaElement.Effect>
-                <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
-            </MediaElement.Effect>
-        </MediaElement>
 
         <Button x:Name="Previous" Content="Previous" HorizontalAlignment="Left" Margin="12,454,0,0" VerticalAlignment="Top" Click="Previous_Click" Width="95" RenderTransformOrigin="0.5,0.5" Height="32" CacheMode="{DynamicResource WindowCacheMode}" >
             <Button.RenderTransform>
@@ -167,7 +107,7 @@
                 <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
             </Button.Effect>
         </Button>
-        <Image x:Name="Monkey" HorizontalAlignment="Left" Height="100" Margin="698,414,0,0" VerticalAlignment="Top" Width="100" gif:ImageBehavior.AnimatedSource="/animal-1.1s-256px.gif" MouseLeftButtonUp="Monkey_MouseLeftButtonUp" Cursor="Hand" Stretch="UniformToFill" Source="/icon-0.9s-256px.png" CacheMode="{DynamicResource WindowCacheMode}"/>
+        <Image x:Name="Monkey" HorizontalAlignment="Left" Height="121" Margin="670,393,0,0" VerticalAlignment="Top" Width="128" gif:ImageBehavior.AnimatedSource="/animal-1.1s-256px.gif" MouseLeftButtonUp="Monkey_MouseLeftButtonUp" Cursor="Hand" Source="/icon-0.9s-256px.png" CacheMode="{DynamicResource WindowCacheMode}"/>
         <Button x:Name="submit" Content="🔍" HorizontalAlignment="Left" Margin="559,471,0,0" VerticalAlignment="Top" Click="submit_Click" Width="42" RenderTransformOrigin="0.5,0.5" Height="32" CacheMode="{DynamicResource WindowCacheMode}" >
             <Button.RenderTransform>
                 <TransformGroup>
@@ -200,7 +140,7 @@
                 <DropShadowEffect RenderingBias="Quality" Opacity="0.55"/>
             </Button.Effect>
         </Button>
-        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Margin="269,462,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" Background="#A5FFFFFF" RenderTransformOrigin="0.5,0.5" Text="Top Ten Anime Betrayals" KeyDown="searchBox_KeyDown" Height="30" FontSize="18" CacheMode="{DynamicResource WindowCacheMode}" >
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Margin="269,462,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" Background="#A5FFFFFF" RenderTransformOrigin="0.5,0.5" Text="Top Ten Anime Betrayals" KeyDown="searchBox_KeyDown" Height="30" FontSize="18" CacheMode="{DynamicResource WindowCacheMode}" GotFocus="searchBox_GotFocus" >
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
