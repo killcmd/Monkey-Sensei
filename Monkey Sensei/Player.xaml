@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monkey_Sensei"
         xmlns:gif="http://wpfanimatedgif.codeplex.com" x:Class="Monkey_Sensei.Player"
-        mc:Ignorable="d" Height="466" Width="583" Background="{DynamicResource Window-Main}" ResizeMode="NoResize" Closing="Window_Closing" WindowStartupLocation="CenterOwner">
+        mc:Ignorable="d" Height="466" Width="583" Background="{DynamicResource Window-Main}" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
     <Window.Resources>
         <ImageBrush x:Key="Window-Main" ImageSource="/wepik-3d-vaporwave-aesthetics-desktop-wallpaper-2024022306482680NO.png" Stretch="UniformToFill" TileMode="Tile"/>
     </Window.Resources>

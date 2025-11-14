@@ -1,156 +1,155 @@
 ﻿using Newtonsoft.Json;
-using System.Data;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Net;
 using System.Net.Http;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace Monkey_Sensei
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-
-
-
         private static int page = 0;
         private static string search = "";
+
+        private static readonly HttpClient client = new HttpClient();
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private static readonly HttpClient client = new HttpClient();
-        private static readonly WebClient web = new WebClient();
+        // Model classes for JSON
+        public class User
+        {
+            public string? steam_name { get; set; }
+        }
 
+        public class Post
+        {
+            public string? title { get; set; }
+            public string? thumbnail { get; set; }
+            public User? user { get; set; }
+        }
+
+        public class ApiResponse
+        {
+            public List<Post>? posts { get; set; }
+        }
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            string searchQuery = !string.IsNullOrEmpty(search) ? $"&search={search}" : "";
-            string url = $"https://steamdeckrepo.com/api/posts?page={page + 1}{searchQuery}";
-            HttpResponseMessage response = await client.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-            string responseBody = await response.Content.ReadAsStringAsync();
-            dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
-
-            for (int i = 1; i <= 12; i++)
-            {
-                Image img = (Image)this.FindName("staticimg" + i.ToString());
-
-                img.Source = null;
-                img.ToolTip = null;
-
-            }
-
-            for (int i = 1; i <= posts.Count; i++)
-            {
-                Image img = (Image)this.FindName("staticimg" + i.ToString());
-
-                img.Source = posts[i - 1].thumbnail;
-                img.ToolTip = "Title: " + posts[i - 1].title + "\nSteamID: " + posts[i - 1].user.steam_name;
-
-            }
-        
-
+            await LoadPosts();
         }
 
-        private async void Window_Refresh()
+        private async Task LoadPosts()
         {
             string searchQuery = !string.IsNullOrEmpty(search) ? $"&search={search}" : "";
             string url = $"https://steamdeckrepo.com/api/posts?page={page + 1}{searchQuery}";
+
             HttpResponseMessage response = await client.GetAsync(url);
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
-            dynamic posts = JsonConvert.DeserializeObject<dynamic>(responseBody).posts;
 
+            var apiResponse = JsonConvert.DeserializeObject<ApiResponse>(responseBody);
+            var posts = apiResponse?.posts ?? new List<Post>();
+
+            // Clear images
             for (int i = 1; i <= 12; i++)
             {
                 Image img = (Image)this.FindName("staticimg" + i.ToString());
-
-                img.Source = null;
-                img.ToolTip = null;
-
+                if (img != null)
+                {
+                    img.Source = null;
+                    img.ToolTip = null;
+                }
             }
 
-            for (int i = 1; i <= posts.Count; i++)
+            // Populate images
+            for (int i = 1; i <= posts.Count && i <= 12; i++)
             {
                 Image img = (Image)this.FindName("staticimg" + i.ToString());
+                if (img != null)
+                {
+                    try
+                    {
+                        BitmapImage bitmap = new BitmapImage();
+                        bitmap.BeginInit();
+                        bitmap.UriSource = new Uri(posts[i - 1].thumbnail, UriKind.Absolute);
+                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                        bitmap.EndInit();
 
-                img.Source = posts[i - 1].thumbnail;
-                img.ToolTip = "Title: " + posts[i - 1].title + "\nSteamID: " + posts[i - 1].user.steam_name;
-
+                        img.Source = bitmap;
+                        img.ToolTip = $"Title: {posts[i - 1].title}\nSteamID: {posts[i - 1].user?.steam_name}";
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"Image load failed: {ex.Message}");
+                    }
+                }
             }
-
         }
 
-        private void Previous_Click(object sender, RoutedEventArgs e)
+        private async void Previous_Click(object sender, RoutedEventArgs e)
         {
-            page -=1;
-            Window_Refresh();
+            if (page > 0) page--;
+            await LoadPosts();
         }
 
-        private void Next_Click(object sender, RoutedEventArgs e)
+        private async void Next_Click(object sender, RoutedEventArgs e)
         {
-            page +=1;
-            Window_Refresh();
-
+            page++;
+            await LoadPosts();
         }
-
 
         private async void submit_Click(object sender, RoutedEventArgs e)
         {
             page = 0;
             search = searchBox.Text;
-            Window_Refresh();
-
+            await LoadPosts();
         }
 
         private async void clear_Click(object sender, RoutedEventArgs e)
         {
             var RandText = new Random().Next(1, 8);
             page = 0;
-            search = null;
+            search = String.Empty;
             searchBox.Clear();
-            Window_Refresh();
+            await LoadPosts();
+
             searchBox.Text = RandText switch
-            { 
-            1 => "Top 10 Anime Betrayals",
-            2 => "How not to get catfished",
-            3 => "Boku no Pico",
-            4 => "iPhone used as a ballistic missile",
-            5 => "Hoodrat shit",
-            6 => "Booty Warrior",
-            7 => "Muscle Mommies",
-            8 => "Boomer Shit",
-            _ => "Top 10 Anime Betrayals"
-            
+            {
+                1 => "Top 10 Anime Betrayals",
+                2 => "How not to get catfished",
+                3 => "Boku no Pico",
+                4 => "iPhone used as a ballistic missile",
+                5 => "Hoodrat shit",
+                6 => "Booty Warrior",
+                7 => "Muscle Mommies",
+                8 => "Boomer Shit",
+                _ => "Top 10 Anime Betrayals"
             };
         }
 
         private void Monkey_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-         
-
             Process.Start(new ProcessStartInfo("https://github.com/killcmd") { UseShellExecute = true });
-
         }
 
-        private void searchBox_KeyDown(object sender, KeyEventArgs e)
+        private async void searchBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
                 search = searchBox.Text;
-                Window_Refresh();
+                await LoadPosts();
             }
         }
 
-        private async void InitPlayer (string search2, int page2 , int vid2)
+
+        private async void InitPlayer(string search2, int page2, int vid2)
         {
 
             await Dispatcher.BeginInvoke(new Action(() =>
@@ -158,11 +157,11 @@ namespace Monkey_Sensei
                 try
                 {
 
-                        Player results1 = new Player();
-                        results1.prevTask(search2, page2,vid2);
-                        results1.Owner = this;
-                        results1.Topmost = true;
-                        results1.ShowDialog();
+                    Player results1 = new Player();
+                    results1.prevTask(search2, page2, vid2).ConfigureAwait(false);
+                    results1.Owner = this;
+                    results1.Topmost = true;
+                    results1.ShowDialog();
 
 
                 }
@@ -180,7 +179,7 @@ namespace Monkey_Sensei
         private async void staticimg3_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-                InitPlayer(search, page, 2);
+            InitPlayer(search, page, 2);
 
 
 
@@ -189,7 +188,7 @@ namespace Monkey_Sensei
         private async void staticimg2_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-                InitPlayer(search, page, 1);
+            InitPlayer(search, page, 1);
 
 
 
@@ -198,8 +197,8 @@ namespace Monkey_Sensei
         private async void staticimg1_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            
-                InitPlayer(search, page, 0);
+
+            InitPlayer(search, page, 0);
 
 
 
@@ -208,8 +207,8 @@ namespace Monkey_Sensei
         private async void staticimg6_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            
-                InitPlayer(search, page, 5);
+
+            InitPlayer(search, page, 5);
 
 
 
@@ -218,8 +217,8 @@ namespace Monkey_Sensei
         private async void staticimg5_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            
-                InitPlayer(search, page, 4);
+
+            InitPlayer(search, page, 4);
 
 
 
@@ -228,8 +227,8 @@ namespace Monkey_Sensei
         private async void staticimg4_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            
-                InitPlayer(search, page, 3);
+
+            InitPlayer(search, page, 3);
 
 
 
@@ -238,8 +237,8 @@ namespace Monkey_Sensei
         private async void staticimg9_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            
-                InitPlayer(search, page, 8);
+
+            InitPlayer(search, page, 8);
 
 
 
@@ -248,8 +247,8 @@ namespace Monkey_Sensei
         private async void staticimg8_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            
-                InitPlayer(search, page, 7);
+
+            InitPlayer(search, page, 7);
 
 
 
@@ -258,8 +257,8 @@ namespace Monkey_Sensei
         private async void staticimg7_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            
-                InitPlayer(search, page, 6);
+
+            InitPlayer(search, page, 6);
 
 
 
@@ -268,8 +267,8 @@ namespace Monkey_Sensei
         private async void staticimg12_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            
-                InitPlayer(search, page, 11);
+
+            InitPlayer(search, page, 11);
 
 
 
@@ -278,8 +277,8 @@ namespace Monkey_Sensei
         private async void staticimg11_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            
-                InitPlayer(search, page, 10);
+
+            InitPlayer(search, page, 10);
 
 
 
@@ -288,8 +287,8 @@ namespace Monkey_Sensei
         private async void staticimg10_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            
-                InitPlayer(search, page, 9);
+
+            InitPlayer(search, page, 9);
 
 
 
@@ -302,7 +301,7 @@ namespace Monkey_Sensei
 
         private void searchBox_GotFocus(object sender, RoutedEventArgs e)
         {
-        searchBox.Clear();
+            searchBox.Clear();
         }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:local="clr-namespace:Monkey_Sensei"
         mc:Ignorable="d"
-        Title="Monkey Sensei's Steam Deck Repo Manager" Height="550" Width="806" Loaded="Window_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" Topmost="True" Closing="Window_Closing">
+        Title="killcmd's SteamDeckRepo" Height="550" Width="806" Loaded="Window_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" Topmost="True" Closing="Window_Closing">
     <Window.Resources>
         <ImageBrush x:Key="Window-Main" ImageSource="/wepik-3d-vaporwave-aesthetics-desktop-wallpaper-2024022306482680NO.png" Stretch="UniformToFill" TileMode="Tile"/>
     </Window.Resources>
